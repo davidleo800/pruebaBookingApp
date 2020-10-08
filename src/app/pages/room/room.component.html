@@ -1,0 +1,87 @@
+<h1 class="m-5">Room</h1>
+<hr>
+<div class="row text-right m-5">
+    <div class="col ">
+        <button routerLink="/availability-rooms" class="btn btn-danger">
+            <i > Back</i>
+        </button>
+    </div>
+</div>
+<div *ngFor="let reserv of reservList" class="card-row m-5 " >
+
+    <div  class="card" *ngIf="reserv.value.type == reservation.type" >
+      <div class="card-body">
+        <h5 class="card-title">Reservación </h5>
+        <p class="card-text">Checkin:
+            <input [(ngModel)]="reserv.value.checkin" 
+            name="checkin" 
+            value="2020-10-20"
+            type="date">
+            Checkout:                 
+            <input [(ngModel)]="reserv.value.checkout" 
+            [min]="checkin"
+            [max]="checkout"
+            name="checkout" 
+            type="date"></p>
+        </div>
+        <a class="btn btn-primary" (click)="updateReservation(reserv)" >Update</a>
+        <a class="btn btn-danger" (click)="deleteReservation(reserv)">Delete</a>
+    </div>
+</div>
+
+<div class="row m-5">
+    <form #f="ngForm">
+        <div class="col">
+            <div class="form-group">
+                <label>Check in: </label><br>
+                <input [(ngModel)]="reservation.checkin" 
+                        name="checkin" 
+                        [min]="checkin"
+                        [max]="checkout"
+                        type="date"
+                        ngModel required>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label>Check out: </label><br>
+                <input [(ngModel)]="reservation.checkout" 
+                        [min]="checkin"
+                        [max]="checkout"
+                        name="checkout" 
+                        type="date" 
+                        value="today"
+                        ngModel required>
+            </div>
+        </div> 
+
+        <div class="row m-5">
+            <div class="col">
+                <button (click)="saveReservation()" class="btn btn-dark" [disabled]="f.invalid"> Reserve </button>
+            </div>    
+        </div>
+    </form>
+ 
+</div>
+
+<div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

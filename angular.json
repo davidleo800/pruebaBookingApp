@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "pruebaScrummers"
+    }
+  },
+  "defaultProject": "pruebaScrummers",
+  "cli": {
+    "analytics": "97b71447-4dde-41fa-b67a-e4109bfe2884"
+  }
 }

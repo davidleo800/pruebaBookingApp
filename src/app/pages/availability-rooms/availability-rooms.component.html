@@ -1,0 +1,34 @@
+<h1 class="center m-5">List Rooms</h1>
+<hr>
+<h4 class="center m-5">Select type room for make reservation</h4>
+<div *ngFor="let room of rooms" class="card-row m-5 " >
+
+    <div  class="card" *ngIf="room.type == 1"[routerLink]="['/room/3', room]">
+      <div class="card-body">
+        <h5 class="card-title">Room type familiar  </h5>
+        <p class="card-text">
+            Avaliable: {{room.checkin}} - {{ room.checkout }} 
+        </p>
+        </div>
+    </div>
+
+    <div  class="card" *ngIf="room.type == 2" [routerLink]="['/room/3', room]">
+        <div class="card-body">
+          <h5 class="card-title">Room type doubles </h5>
+          <p class="card-text">
+            Avaliable: {{room.checkin}} - {{ room.checkout }} 
+        </p>
+          </div>
+      </div>
+
+      <div  class="card"  *ngIf="room.type == 3" [routerLink]="['/room/3', room]">
+        <div class="card-body">
+          <h5 class="card-title">Room type singles </h5>
+          <p class="card-text">
+            Avaliable: {{room.checkin}} - {{ room.checkout }} 
+        </p>
+          </div>
+      </div>
+
+
+</div>
